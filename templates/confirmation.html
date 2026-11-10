@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Boeking bevestigd | DriveEasy</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f7fb;
+            font-family: Arial, sans-serif;
+            color: #14233b;
+        }
+
+        .confirmation-header {
+            background: #101e36;
+            padding: 24px 8%;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .confirmation-header span {
+            color: #60a5fa;
+        }
+
+        .confirmation-card {
+            max-width: 550px;
+            margin: 70px auto;
+            padding: 40px 25px;
+            background: white;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(16, 30, 54, 0.08);
+        }
+
+        .success-icon {
+            font-size: 55px;
+        }
+
+        .confirmation-card h1 {
+            color: #245bd6;
+        }
+
+        .confirmation-card p {
+            line-height: 1.7;
+        }
+
+        .booking-details {
+            background: #f4f7fb;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: #245bd6;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .home-button:hover {
+            background: #1948b4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="confirmation-header">
+        Drive<span>Easy</span>
+    </header>
+
+    <main class="confirmation-card">
+
+        <div class="success-icon">✓</div>
+
+        <h1>Bedankt, {{ name }}!</h1>
+
+        <p>
+            Je boekingsaanvraag is succesvol ontvangen.
+            Hieronder vind je jouw gegevens.
+        </p>
+
+        <div class="booking-details">
+            <p><strong>Auto:</strong> {{ selected_car }}</p>
+            <p><strong>Ophaaldatum:</strong> {{ start_date }}</p>
+            <p><strong>Inleverdatum:</strong> {{ end_date }}</p>
+        </div>
+
+        <p>Dit is een aanvraag en nog geen definitieve reservering.</p>
+
+        <a href="/" class="home-button">Terug naar home</a>
+
+    </main>
+
+</body>
+</html>

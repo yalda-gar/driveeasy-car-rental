@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boek jouw rit | DriveEasy</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f7fb;
+            color: #14233b;
+            font-family: Arial, sans-serif;
+        }
+
+        .booking-header {
+            background: #101e36;
+            color: white;
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .booking-logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .booking-logo span {
+            color: #60a5fa;
+        }
+
+        .booking-header a {
+            color: #d7e2f2;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .booking-hero {
+            background: #101e36;
+            color: white;
+            padding: 25px 8% 55px;
+        }
+
+        .booking-hero h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .booking-hero p {
+            color: #c7d5e8;
+        }
+
+        .booking-container {
+            max-width: 650px;
+            margin: -20px auto 50px;
+            padding: 0 20px;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(16, 30, 54, 0.08);
+        }
+
+        .selected-car {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 25px;
+        }
+
+        .car-icon {
+            background: #e7f0ff;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 26px;
+        }
+
+        .selected-car small {
+            color: #64748b;
+        }
+
+        .selected-car h2 {
+            margin: 5px 0 0;
+            font-size: 20px;
+        }
+
+        .booking-card h3 {
+            margin: 22px 0 15px;
+        }
+
+        .booking-form label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .booking-form input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dbe3ee;
+            border-radius: 8px;
+            font-size: 15px;
+            background: white;
+        }
+
+        .booking-form input:focus {
+            outline: 2px solid #b9d0ff;
+            border-color: #245bd6;
+        }
+
+        .booking-button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: #245bd6;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .booking-button:hover {
+            background: #1948b4;
+        }
+
+        .booking-footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .booking-header {
+                padding: 20px;
+            }
+
+            .booking-header a {
+                margin-left: 10px;
+            }
+
+            .booking-hero h1 {
+                font-size: 30px;
+            }
+
+            .booking-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="booking-header">
+        <div class="booking-logo">Drive<span>Easy</span></div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/#autos">Auto's</a>
+        </nav>
+    </header>
+
+    <section class="booking-hero">
+        <h1>Boek jouw rit.</h1>
+        <p>Een paar gegevens en je bent klaar om je aanvraag te starten.</p>
+    </section>
+
+    <main class="booking-container">
+        <div class="booking-card">
+
+            <div class="selected-car">
+                <div class="car-icon">🚘</div>
+                <div>
+                    <small>JOUW SELECTIE</small>
+                    <h2>{{ selected_car }}</h2>
+                </div>
+            </div>
+
+            <form action="/book" method="POST" class="booking-form">
+
+                <input type="hidden" name="car" value="{{ selected_car }}">
+
+                <h3>Persoonlijke gegevens</h3>
+
+                <label for="name">Volledige naam</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Vul je naam in"
+                    required
+                >
+
+                <label for="email">E-mailadres</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="naam@example.com"
+                    required
+                >
+
+                <h3>Huurperiode</h3>
+
+                <label for="start_date">Ophaaldatum</label>
+                <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    required
+                >
+
+                <label for="end_date">Inleverdatum</label>
+                <input
+                    type="date"
+                    id="end_date"
+                    name="end_date"
+                    required
+                >
+
+                <button type="submit" class="booking-button">
+                    Verstuur aanvraag →
+                </button>
+
+            </form>
+        </div>
+    </main>
+
+    <footer class="booking-footer">
+        DRIVEEASY · RENT. DRIVE. EXPLORE.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ car_name }} | DriveEasy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="details-header">
+    <div class="details-logo">Drive<span>Easy</span></div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/#autos">Onze auto's</a>
+        <a href="/#over-ons">Over ons</a>
+    </nav>
+</header>
+
+<main class="details-container"> 
+    <!-- This section displays the selected car -->
+    <div class="details-card">
+
+        <h1>{{ car_name }}</h1>
+
+        <div class="car-view">
+            <img id="carImage"
+                 src="{{ url_for('static', filename='images/' + (car_images[0] if car_images else 'bmw-front.jpg')) }}"
+                 alt="{{ car_name }}"
+                 onclick="openGallery()">
+
+            <p class="view-label">Klik op de foto om alle foto's te bekijken</p>
+        </div>
+
+        <div class="car-description">
+            <h2>Over deze auto</h2>
+            <p>Ontdek comfort, kwaliteit en gemak met DriveEasy.</p>
+
+            <div class="car-features">
+                <div class="feature">Comfortabel</div>
+                <div class="feature">Betrouwbaar</div>
+                <div class="feature">Ruim interieur</div>
+            </div>
+
+            <h2>€50 per dag</h2>
+
+            <br>
+
+            <a class="book-button"
+               href="/book?car={{ car_name | urlencode }}">
+                Boek deze auto
+            </a>
+        </div>
+
+    </div>
+</main>
+
+<div id="galleryPopup">
+    <button onclick="closeGallery()">Sluiten</button>
+    <h2 id="galleryTitle"></h2>
+    <img id="galleryImage" src="" alt="{{ car_name }}">
+    <button onclick="previousImage()">←</button>
+    <button onclick="nextImage()">→</button>
+</div>
+
+<script>
+const carImages = {{car_images | tojson }};
+let currentImage = 0;
+
+function openGallery() {
+    currentImage = 0;
+    showImage();
+    document.getElementById("galleryPopup").style.display = "block";
+}
+
+function closeGallery() {
+    document.getElementById("galleryPopup").style.display = "none";
+}
+
+function showImage() {
+    document.getElementById("galleryImage").src =
+        "/static/images/" + carImages[currentImage];
+
+    document.getElementById("galleryTitle").textContent =
+        carImages[currentImage].replace(".jpg", "").replace("-", " ");
+}
+
+function nextImage() {
+    currentImage = (currentImage + 1) % carImages.length;
+    showImage();
+}
+
+function previousImage() {
+    currentImage = (currentImage - 1 + carImages.length) % carImages.length;
+    showImage();
+}
+</script>
+
+</body>
+</html>
