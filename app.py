@@ -60,11 +60,12 @@ def book():
     )
 
      if end_date <= start_date:
-            return render_template(
-                "book.html",
-                selected_car=selected_car,
-                error_message="De inleverdatum moet na de ophaaldatum liggen."
-            )
+      return render_template(
+        "book.html",
+        selected_car=selected_car,
+        car_image=main_images.get(selected_car, "bmw-front.jpg"),
+        error_message="De inleverdatum moet na de ophaaldatum liggen."
+    )
 
      return render_template(
             "confirmation.html",

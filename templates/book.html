@@ -182,12 +182,17 @@
         <div class="booking-card">
 
             <div class="selected-car">
-                <div class="car-icon">🚘</div>
-                <div>
-                    <small>JOUW SELECTIE</small>
-                    <h2>{{ selected_car }}</h2>
-                </div>
-            </div>
+    <img
+        src="{{ url_for('static', filename='images/' + car_image) }}"
+        alt="{{ selected_car }}"
+        class="booking-car-image"
+    >
+
+    <div>
+        <small>JOUW SELECTIE</small>
+        <h2>{{ selected_car }}</h2>
+    </div>
+</div>
 
             <form action="/book" method="POST" class="booking-form">
 
