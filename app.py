@@ -3,6 +3,12 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+main_images = {
+    "Compacte auto": "bmw-front.jpg",
+    "Luxe sedan": "audi-front.jpg",
+    "Ruime SUV": "mercedes-front.jpg"
+}
+
 @app.route("/car/<car_name>") # open home page
 def car_details(car_name):
     image_sets = { 
@@ -46,20 +52,21 @@ def book():
         start_date = request.form.get("start_date", "")
         end_date = request.form.get("end_date", "")
 
-        if not name or not email or not start_date or not end_date:
-            return render_template(
-                "book.html",
-                selected_car=selected_car
-            )
+    if not name or not email or not start_date or not end_date:
+     return render_template(
+        "book.html",
+        selected_car=selected_car,
+        car_image=main_images.get(selected_car, "bmw-front.jpg")
+    )
 
-        if end_date <= start_date:
+     if end_date <= start_date:
             return render_template(
                 "book.html",
                 selected_car=selected_car,
                 error_message="De inleverdatum moet na de ophaaldatum liggen."
             )
 
-        return render_template(
+     return render_template(
             "confirmation.html",
             name=name,
             selected_car=selected_car,
@@ -68,7 +75,12 @@ def book():
         )
 
     selected_car = request.args.get("car", "Compacte auto")
-    return render_template("book.html", selected_car=selected_car)
+
+    return render_template(
+    "book.html",
+    selected_car=selected_car,
+    car_image=main_images.get(selected_car, "bmw-front.jpg")
+)
 
 
 if __name__ == "__main__":
