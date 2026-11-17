@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+#Create a new Flask application
 
 main_images = {
     "Compacte auto": "bmw-front.jpg",
@@ -9,7 +10,7 @@ main_images = {
     "Ruime SUV": "mercedes-front.jpg"
 }
 
-@app.route("/car/<car_name>") # open home page
+@app.route("/car/<car_name>") # open home page show cars
 def car_details(car_name):
     image_sets = { 
         
@@ -59,7 +60,7 @@ def book():
         car_image=main_images.get(selected_car, "bmw-front.jpg")
     )
 
-     if end_date <= start_date:
+     if end_date <= start_date: # Check if the return date is after the pickup date
       return render_template(
         "book.html",
         selected_car=selected_car,

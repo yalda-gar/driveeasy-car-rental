@@ -76,7 +76,12 @@
             border-bottom: 1px solid #e2e8f0;
             margin-bottom: 25px;
         }
-
+        .booking-car-image {
+    width: 120px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 12px;
+}
         .car-icon {
             background: #e7f0ff;
             padding: 14px;
@@ -172,7 +177,7 @@
             <a href="/#autos">Auto's</a>
         </nav>
     </header>
-
+<!-- Booking page introduction -->
     <section class="booking-hero">
         <h1>Boek jouw rit.</h1>
         <p>Een paar gegevens en je bent klaar om je aanvraag te starten.</p>
@@ -193,7 +198,7 @@
         <h2>{{ selected_car }}</h2>
     </div>
 </div>
-
+                   <!-- Send booking details to Flask -->
             <form action="/book" method="POST" class="booking-form">
 
                 <input type="hidden" name="car" value="{{ selected_car }}">

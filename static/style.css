@@ -1,15 +1,18 @@
+/* Reset default browser spacing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Main website styling */
 body {
     font-family: Arial, sans-serif;
     background: #f4f7fb;
     color: #142238;
 }
 
+/* Main header and navigation */
 header {
     background: #0d1b2a;
     color: white;
@@ -21,6 +24,7 @@ header {
     gap: 16px;
 }
 
+/* Website logo */
 .logo {
     font-size: 28px;
     font-weight: bold;
@@ -30,16 +34,19 @@ header {
     color: #168cff;
 }
 
+/* Navigation links */
 nav a {
     color: white;
     text-decoration: none;
     margin-left: 22px;
 }
 
+/* Navigation hover effect */
 nav a:hover {
     color: #168cff;
 }
 
+/* Homepage hero section with background image */
 .hero {
     min-height: 440px;
     padding: 90px 8%;
@@ -53,21 +60,25 @@ nav a:hover {
     align-items: center;
 }
 
+/* Hero text container */
 .hero-content {
     max-width: 540px;
 }
 
+/* Main homepage heading */
 .hero h1 {
     font-size: clamp(36px, 5vw, 54px);
     margin-bottom: 20px;
 }
 
+/* Hero description */
 .hero p {
     font-size: 18px;
     line-height: 1.7;
     margin-bottom: 28px;
 }
 
+/* Main homepage button */
 .button {
     display: inline-block;
     background: #168cff;
@@ -78,10 +89,12 @@ nav a:hover {
     font-weight: bold;
 }
 
+/* Button hover effect */
 .button:hover {
     background: #0874d1;
 }
 
+/* Benefits section layout */
 .benefits {
     display: flex;
     justify-content: space-around;
@@ -91,10 +104,12 @@ nav a:hover {
     background: white;
 }
 
+/* Individual benefit text */
 .benefit {
     font-weight: bold;
 }
 
+/* Available cars section */
 .cars {
     padding: 55px 8%;
 }
@@ -104,17 +119,20 @@ nav a:hover {
     margin-bottom: 12px;
 }
 
+/* Description below section heading */
 .section-description {
     color: #64748b;
     margin-bottom: 28px;
 }
 
+/* Responsive grid for car cards */
 .car-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
 }
 
+/* Individual car card */
 .car-card {
     background: white;
     border-radius: 12px;
@@ -123,16 +141,19 @@ nav a:hover {
     transition: transform 0.2s;
 }
 
+/* Move card slightly when hovering */
 .car-card:hover {
     transform: translateY(-5px);
 }
 
+/* Car card image */
 .car-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
 
+/* Car card text area */
 .car-info {
     padding: 20px;
 }
@@ -146,6 +167,7 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
+/* Website footer */
 footer {
     background: #0d1b2a;
     color: white;
@@ -154,6 +176,7 @@ footer {
     margin-top: 30px;
 }
 
+/* Homepage layout for small screens */
 @media (max-width: 600px) {
     header {
         padding: 20px 5%;
@@ -174,8 +197,10 @@ footer {
         padding: 40px 6%;
     }
 }
+
 /* CAR DETAILS PAGE */
 
+/* Car details page header */
 .details-header {
     background: #101e36;
     color: white;
@@ -185,6 +210,7 @@ footer {
     align-items: center;
 }
 
+/* Car details page logo */
 .details-logo {
     font-size: 26px;
     font-weight: bold;
@@ -194,17 +220,20 @@ footer {
     color: #60a5fa;
 }
 
+/* Car details navigation links */
 .details-header a {
     color: white;
     text-decoration: none;
 }
 
+/* Main car details container */
 .details-container {
     max-width: 950px;
     margin: 45px auto;
     padding: 20px;
 }
 
+/* Car details card */
 .details-card {
     background: white;
     padding: 30px;
@@ -212,6 +241,7 @@ footer {
     box-shadow: 0 8px 30px rgba(16, 30, 54, 0.08);
 }
 
+/* Main car image area */
 .car-view {
     position: relative;
     background: #f4f7fb;
@@ -220,12 +250,14 @@ footer {
     text-align: center;
 }
 
+/* Main car image */
 .car-view img {
     width: 100%;
     height: 350px;
     object-fit: contain;
 }
 
+/* Image slider buttons */
 .slider-button {
     position: absolute;
     top: 45%;
@@ -239,23 +271,28 @@ footer {
     cursor: pointer;
 }
 
+/* Previous image button position */
 .previous {
     left: 12px;
 }
 
+/* Next image button position */
 .next {
     right: 12px;
 }
 
+/* Text below the car image */
 .view-label {
     color: #64748b;
     font-weight: bold;
 }
 
+/* Car description section */
 .car-description {
     margin-top: 25px;
 }
 
+/* Car features layout */
 .car-features {
     display: flex;
     flex-wrap: wrap;
@@ -263,12 +300,14 @@ footer {
     margin: 20px 0;
 }
 
+/* Individual car feature */
 .feature {
     background: #e7f0ff;
     padding: 12px 18px;
     border-radius: 9px;
 }
 
+/* Book this car button */
 .book-button {
     display: inline-block;
     background: #245bd6;
@@ -279,6 +318,7 @@ footer {
     font-weight: bold;
 }
 
+/* Car details layout for small screens */
 @media (max-width: 600px) {
     .details-card {
         padding: 18px;
@@ -288,8 +328,10 @@ footer {
         height: 230px;
     }
 }
+
 /* PHOTO GALLERY POPUP */
 
+/* Full-screen image gallery background */
 #galleryPopup {
     display: none;
     position: fixed;
@@ -302,6 +344,7 @@ footer {
     box-sizing: border-box;
 }
 
+/* Image displayed inside the gallery */
 #galleryPopup img {
     max-width: 90%;
     max-height: 65vh;
@@ -312,6 +355,7 @@ footer {
     margin: 20px auto;
 }
 
+/* Gallery navigation buttons */
 #galleryPopup button {
     background: #245bd6;
     color: white;
@@ -323,6 +367,7 @@ footer {
     font-size: 18px;
 }
 
+/* Gallery image title */
 #galleryPopup h2 {
     margin: 10px 0;
 }
