@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DriveEasy</title>
+
+    <!-- Load the main CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Main page styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #142238;
+        }
+
+        /* Login page header */
+        .login-header {
+            background: #101e36;
+            color: white;
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Website logo */
+        .login-logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .login-logo span {
+            color: #60a5fa;
+        }
+
+        /* Header navigation links */
+        .login-header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* Login form container */
+        .login-container {
+            max-width: 420px;
+            margin: 70px auto;
+            padding: 20px;
+        }
+
+        /* Login form card */
+        .login-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(16, 30, 54, 0.08);
+        }
+
+        .login-card h1 {
+            margin-bottom: 10px;
+        }
+
+        .login-card p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        /* Form labels */
+        .login-form label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Email and password fields */
+        .login-form input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dbe3ee;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        /* Input focus effect */
+        .login-form input:focus {
+            outline: 2px solid #b9d0ff;
+            border-color: #245bd6;
+        }
+
+        /* Login button */
+        .login-button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: #245bd6;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: #1948b4;
+        }
+
+        /* Success and error messages */
+        .login-message {
+            color: green;
+            margin-top: 15px;
+        }
+
+        .login-error {
+            color: red;
+            margin-top: 15px;
+        }
+
+        /* Login page footer */
+        .login-footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Website header and navigation -->
+    <header class="login-header">
+        <div class="login-logo">Drive<span>Easy</span></div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/#autos">Auto's</a>
+        </nav>
+    </header>
+
+    <!-- Main login form -->
+    <main class="login-container">
+        <div class="login-card">
+
+            <h1>Welkom terug!</h1>
+            <p>Log in bij DriveEasy om verder te gaan.</p>
+
+            <!-- Send login details to Flask -->
+            <form action="/login" method="POST" class="login-form">
+
+                <label for="email">E-mailadres</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="naam@example.com"
+                    required
+                >
+
+                <label for="password">Wachtwoord</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Vul je wachtwoord in"
+                    required
+                >
+
+                <!-- Submit login form -->
+                <button type="submit" class="login-button">
+                    Inloggen
+                </button>
+
+            </form>
+
+            <!-- Display Flask success or error messages -->
+            {% if message %}
+                <p class="login-message">{{ message }}</p>
+            {% endif %}
+
+            {% if error_message %}
+                <p class="login-error">{{ error_message }}</p>
+            {% endif %}
+
+        </div>
+    </main>
+
+    <!-- Website footer -->
+    <footer class="login-footer">
+        DRIVEEASY · RENT. DRIVE. EXPLORE.
+    </footer>
+
+</body>
+</html>

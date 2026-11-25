@@ -6,36 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DriveEasy | Huur jouw perfecte auto</title>
 
+    <!-- Load the main CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
 
+    <!-- Website header and navigation -->
     <header>
         <div class="logo">Drive<span>Easy</span></div>
- <!-- Navigation links -->
+
         <nav>
             <a href="#home">Home</a>
             <a href="#autos">Auto's</a>
             <a href="#over-ons">Over ons</a>
+            <a href="/login">Login</a>
         </nav>
     </header>
-     <!-- The main welcome section of the website -->
+
+    <!-- Main welcome section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Jouw perfecte auto, bij DriveEasy</h1>
-             
+
             <p>
                 Huur eenvoudig en snel de auto die bij jou past.
                 Of je nu op vakantie gaat of een dagje weg wilt,
                 DriveEasy helpt je op weg.
             </p>
-             <!-- A button that jumps to the cars section -->
+
+            <!-- Button to view available cars -->
             <a href="#autos" class="button">Bekijk auto's →</a>
         </div>
     </section>
-    
+
+    <!-- Website benefits -->
     <section class="benefits" id="over-ons">
         <div class="benefit">✓ Veilig en betrouwbaar</div>
         <div class="benefit">✓ Scherpe prijzen</div>
@@ -43,14 +48,17 @@
         <div class="benefit">✓ Goede service</div>
     </section>
 
+    <!-- Available cars section -->
     <section class="cars" id="autos">
         <h2>Populaire auto's</h2>
         <p class="section-description">
             Ontdek welke auto bij jouw reis past.
         </p>
 
+        <!-- Grid containing the car cards -->
         <div class="car-grid">
 
+            <!-- Compact car card -->
             <div class="car-card">
                 <img
                     src="{{ url_for('static', filename='images/bmw-front.jpg') }}"
@@ -62,6 +70,7 @@
                 </div>
             </div>
 
+            <!-- Luxury sedan card -->
             <div class="car-card">
                 <img
                     src="{{ url_for('static', filename='images/audi-front.jpg') }}"
@@ -73,6 +82,7 @@
                 </div>
             </div>
 
+            <!-- SUV card -->
             <div class="car-card">
                 <img
                     src="{{ url_for('static', filename='images/mercedes-front.jpg') }}"
@@ -87,6 +97,7 @@
         </div>
     </section>
 
+    <!-- Website footer -->
     <footer id="contact">
         <p>© 2026 DriveEasy — Rent. Drive. Explore.</p>
     </footer>
